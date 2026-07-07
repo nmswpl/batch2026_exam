@@ -1,8 +1,7 @@
 package in.co.nmsworks.exam;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class UserDetailsRunner {
     public static void main(String[] args) {
@@ -11,7 +10,55 @@ public class UserDetailsRunner {
         userDetailsList = runner.readDB();
         System.out.println(userDetailsList.size());
 
+        String userName = "tantyukhinrr";
+        String password = "dC1?BvIZz<&#Lh";
+        runner.checkValid(userDetailsList, userName,password);
 
+        Set<String> activeFemaleDetails = new LinkedHashSet<>();
+        activeFemaleDetails = runner.getActiveFemaleName(userDetailsList);
+
+        for (String detail : activeFemaleDetails) {
+            System.out.println(detail);
+        }
+
+    }
+
+    private Set<String> getActiveFemaleName(List<UserDetails> userDetailsList) {
+
+        Set<String> activeFemales = new LinkedHashSet<>();
+
+        for (UserDetails details : userDetailsList) {
+            if("Female".equals(details.getGender()) && "Active".equals(details.getAccountStatus()))
+            {
+                activeFemales.add(details.getName());
+            }
+        }
+
+
+        return activeFemales;
+    }
+
+    private void checkValid(List<UserDetails> userDetails, String username, String password) {
+
+        boolean user = false;
+        boolean pass = false;
+        for (UserDetails detail : userDetails) {
+            if( username.equals(detail.getUserName()))
+            {
+                user = true;
+                if(password.equals(detail.getPassword()))
+                {
+                    user = true;
+                    System.out.println("Password Valid");
+                    return;
+                }
+
+            }
+        }
+        if(!user)
+            System.out.println("Invalid user");
+        else
+            System.out.println("Invalid password");
 
 
     }
@@ -24,7 +71,7 @@ public class UserDetailsRunner {
         {
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while ( resultSet !=  null )
+            while ( resultSet.next() )
             {
 
                 String id = resultSet.getString("emp_id");

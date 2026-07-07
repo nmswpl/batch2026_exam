@@ -12,7 +12,6 @@ public class ProcessSalesInfo {
         List<SalesInfo> salesInfoList = new ArrayList<>();
 
         salesInfoList = readFile();
-//        System.out.println(salesInfoList.size());
 
         printAveragePrice(salesInfoList);
         printHighestSoldProductPerMonth(salesInfoList);

@@ -11,9 +11,9 @@ public class ShippingRunner {
         runner.calculateTotalCost(air);
     }
 
-    public void calculateTotalCost(ShippingMethod shippingMethod){
+    public void calculateTotalCost(ShippingMethod shipping){
 
-
+        System.out.println("total cost : " + (shipping.getBaseDistance() * shipping.getBaseWeight() * shipping.getBasePrice()));
 
     }
 

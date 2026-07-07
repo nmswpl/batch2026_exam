@@ -5,28 +5,40 @@ import java.util.Scanner;
 public class ArmstrongNumber {
     public static void main(String[] args) {
         ArmstrongNumber armstrongNumber=new ArmstrongNumber();
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Give number to check isArmstrong");
-        int num=scanner.nextInt();
-        if(armstrongNumber.isArmstrongNumber(num))
+        int count=7;
+        System.out.println("First 7 Armstrong Numbers :");
+        while(count>0)
         {
-            System.out.println(num+" is an Armstrong number");
+            for(int i=10;i<Integer.MAX_VALUE-1;i++)
+            {
+                if(armstrongNumber.isArmstrongNumber(i))
+                {
+                    System.out.print(i+" ");
+                    count--;
+                }
+            }
+
         }
-        else {
-            System.out.println(num+" is not Armstrong number");
-        }
-        scanner.close();
+
     }
 
     public boolean isArmstrongNumber(int number) {
         int sum=0;
         int initial =number;
-        while(number>0)
+        int num=number;
+        int digitCount=0;
+//        while()
+        while(initial>0)
         {
-            int digit=number%10;
-            number=number/10;
-            sum+=(digit*digit*digit);
+            initial=initial/10;
+            digitCount++;
         }
-        return sum == initial;
+        while(num>0)
+        {
+            int digit=num%10;
+            num=num/10;
+            sum+= (int) Math.pow(digit,digitCount);
+        }
+        return sum == number;
     }
 }

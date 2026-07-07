@@ -1,13 +1,10 @@
 package in.co.nmsworks.exam;
 
-import static java.lang.Math.pow;
-
 public class ArmstrongNumber {
 
     public static void main(String[] args) {
         ArmstrongNumber arms = new ArmstrongNumber();
-        boolean output = arms.isArmstrongNumber(123);
-        System.out.println("Armstrong Number :"+output);
+        arms.isArmstrongNumber(123);
     }
 
     public boolean isArmstrongNumber(int num){

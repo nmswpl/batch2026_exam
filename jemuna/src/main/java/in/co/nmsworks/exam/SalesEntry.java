@@ -6,10 +6,10 @@ public class SalesEntry {
     String product_name;
     String category;
     int price;
-    int items_sold;
+    float items_sold;
     String date;
 
-    public SalesEntry(String sales_id, String product_name, String category, int price, int items_sold, String date) {
+    public SalesEntry(String sales_id, String product_name, String category, int price, float items_sold, String date) {
         this.sales_id = sales_id;
         this.product_name = product_name;
         this.category = category;
@@ -53,11 +53,11 @@ public class SalesEntry {
         this.price = price;
     }
 
-    public int getItems_sold() {
+    public float getItems_sold() {
         return items_sold;
     }
 
-    public void setItems_sold(int items_sold) {
+    public void setItems_sold(float items_sold) {
         this.items_sold = items_sold;
     }
 

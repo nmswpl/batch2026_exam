@@ -24,11 +24,12 @@ public class SalesInfo {
             int averagePrice = 0;
             int sum = 0;
             int wordlength;
+            reader.readLine();
             while((line = reader.readLine())!=null){
-                reader.readLine();
                 String[] words = line.split(",");
                 for (String word : words) {
                     System.out.println(word);
+                    word.trim();
                 }
                 wordlength = words.length;
                 for (int i = 0; i < words.length; i++) {
@@ -36,8 +37,8 @@ public class SalesInfo {
                     String product_name = words[1];
                     String category = words[2];
                     categorySet.add(words[2]);
-                    int price = Integer.parseInt(words[3]);
-                    int items_sold = Integer.parseInt(words[4]);
+                    int price = Integer.parseInt(words[3].trim());
+                    float items_sold = Float.parseFloat(words[4].trim());
                     String date = words[5];
                     SalesEntry sales = new SalesEntry(sales_id,product_name,category,price,items_sold,date);
                     for (String eachCategory : categorySet) {

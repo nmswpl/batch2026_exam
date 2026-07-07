@@ -1,4 +1,4 @@
-package in.co.nmsworks.exam.sales.login;
+package in.co.nmsworks.exam.login;
 
 public class UserDetails {
     private String empId;

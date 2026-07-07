@@ -5,7 +5,7 @@ public class ShippingCostCalculator {
         double basePrice = shippingMethod.getBasePrice();
         double v = shippingMethod.additionalWeightCost(5);
         double v1 = shippingMethod.additionalDistanceCost(100);
-        System.out.println();
+
 
 
     }

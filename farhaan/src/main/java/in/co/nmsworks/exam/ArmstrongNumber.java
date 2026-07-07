@@ -3,7 +3,7 @@ package in.co.nmsworks.exam;
 public class ArmstrongNumber {
     public static void main(String[] args) {
         ArmstrongNumber runner = new ArmstrongNumber();
-        boolean isAmstrong = runner.isArmstrongNumber(152);
+        boolean isAmstrong = runner.isArmstrongNumber(153);
         if(isAmstrong){
             System.out.println("The number is armstrong number");
         }
@@ -14,6 +14,8 @@ public class ArmstrongNumber {
 
     public boolean isArmstrongNumber(int num) {
         int temp = num;
+        String numSize = num + "";
+        int stringSize = numSize.length();
         int count = 0;
         while(temp<10){
             temp = temp / 10;
@@ -29,7 +31,7 @@ public class ArmstrongNumber {
             secondNum = (num/10) % 10;
             count--;
         }
-        if(Math.pow(firstDigit,3) + Math.pow(secondNum,3) + Math.pow(lastDigit,3) == num){
+        if(Math.pow(firstDigit,stringSize) + Math.pow(secondNum,stringSize) + Math.pow(lastDigit,stringSize) == num){
             return true;
         }
         return false;

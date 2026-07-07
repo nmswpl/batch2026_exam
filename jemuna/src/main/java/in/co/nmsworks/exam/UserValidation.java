@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class UserValidation {
     public static void main(String[] args) throws SQLException {
-        UserValidation user = new UserValidation(name,password);
+        UserValidationPOJO user = new UserValidationPOJO();
         String usernamer = "Brit Meacher";
         String userPassword = "lL5{&~og,yKtb|U";
         try{
@@ -23,7 +23,8 @@ public class UserValidation {
                 System.out.println("Invalid UserName");
             }
 
-            if(userPassword.equals(rs.getPassword())){
+
+            if(userPassword.equals(user.getPassword())){
                 System.out.println("Valid Password");
             }
             else{

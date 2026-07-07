@@ -14,6 +14,7 @@ public class Problem {
 
     }
 
+
     public boolean isArmstrongNumber(int num){
         int temp = num;
         int sum = 0;

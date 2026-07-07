@@ -5,7 +5,7 @@ public class AmstrongNoCalculator {
     public static void main(String[] args) {
         AmstrongNoCalculator calculatorObj = new AmstrongNoCalculator();
 
-        calculatorObj.checkAmstrongNo(123);
+        calculatorObj.checkAmstrongNo(153);
     }
 
     private void checkAmstrongNo(int number) {

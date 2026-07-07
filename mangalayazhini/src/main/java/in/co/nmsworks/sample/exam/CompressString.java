@@ -36,7 +36,8 @@ public class CompressString {
         }
 
         System.out.println("compressed str : " + compressedStr);
-        return null;
+
+        return compressedStr;
     }
 
 }

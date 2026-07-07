@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UserRunner {
     public static void main(String[] args) {
@@ -20,9 +17,27 @@ public class UserRunner {
 
         runnerObj.checkValidUsernameAndPassword("lhaycock1","hZ3?)}8nz+lO",userMap);
 
+        System.out.println("Active Female Members : ");
+        Set<String> activeFemaleMembers = runnerObj.getActiveFemaleName(usersList);
+        for (String activeFemaleMember : activeFemaleMembers) {
+            System.out.println(activeFemaleMember );
+
+        }
 
     }
 
+
+    private Set<String> getActiveFemaleName(List<User> usersList){
+        Set<String> femaleNamesSet = new HashSet<>();
+
+        for (User user : usersList) {
+            if("Female".equals(user.getGender()) && "Active".equals(user.getAccountStatus())){
+                femaleNamesSet.add(user.getName());
+            }
+        }
+
+        return femaleNamesSet;
+    }
     private void checkValidUsernameAndPassword(String username, String password, Map<String,User> userMap) {
 
 

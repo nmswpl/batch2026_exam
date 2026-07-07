@@ -4,49 +4,42 @@ public class ArmstrongNumbers {
 
     public static void main(String[] args) {
 
-        int count = 0;
-        int currentNum = 123;
+        int counter = 0;
+        int currentNumber = 123;
 
         System.out.println("The first 7 Armstrong numbers greater than 10 are:");
-
-        while (count < 7) {
-            if (isArmstrongNumber(currentNum)) {
-                System.out.println(currentNum);
-                count++;
+        while (counter < 7) {
+            if (isArmstrongNumber(currentNumber)) {
+                System.out.println(currentNumber);
+                counter++;
             }
-            currentNum++;
+            currentNumber++;
         }
 
     }
-
-
-
-
-
     public static boolean isArmstrongNumber(int num) {
         if(num<0){
             return false;
         }
 
-        int originalNum = num;
-        int temp = num;
+        int originalNumber = num;
+        int temporary = num;
         int digits = 0;
         int sum = 0;
 
-        while (temp > 0) {
+        while (temporary > 0) {
             digits++;
-            temp /= 10;
+            temporary /= 10;
         }
 
-        temp = num;
-        while (temp > 0) {
-            int remainder = temp % 10;
+        temporary = num;
+        while (temporary > 0) {
+            int remainder = temporary % 10;
             sum += Math.pow(remainder, digits);
-            temp /= 10;
+            temporary /= 10;
         }
 
-
-        return sum == originalNum;
+        return sum == originalNumber;
     }
 
 }

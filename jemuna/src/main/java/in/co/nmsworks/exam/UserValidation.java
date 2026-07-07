@@ -14,9 +14,8 @@ public class UserValidation {
             while(rs.next()){
                 String name = rs.getString(1);
                 String password = rs.getString(2);
-                UserValidation user = new UserValidation(name,password);
             }
-            if(usernamer.equals(user.getName()){
+            if(usernamer.equals(user.getName())){
                 System.out.println("Valid UserName");
             }
             else{

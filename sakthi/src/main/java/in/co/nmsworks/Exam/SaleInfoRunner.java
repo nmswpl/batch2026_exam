@@ -16,7 +16,6 @@ public class SaleInfoRunner {
 
         if (sales != null && sales.length > 0) {
             printAveragePriceByCategory(sales);
-            printHighestSoldProductPerMonth(sales);
         }
     }
 
@@ -81,36 +80,4 @@ public class SaleInfoRunner {
         }
     }
 
-    public static void printHighestSoldProductPerMonth(SaleInfo[] sales) {
-        System.out.println("\n--- Highest Revenue Product Per Month ---");
-        Map<String, SaleInfo> highestPerMonth = new HashMap<>();
-
-        for (SaleInfo sale : sales) {
-            if (sale == null) continue;
-            String month = sale.getMonthKey();
-            if (!highestPerMonth.containsKey(month)) {
-                highestPerMonth.put(month, sale);
-            } else {
-                if (sale.getTotalRevenue() > highestPerMonth.get(month).getTotalRevenue()) {
-                    highestPerMonth.put(month, sale);
-                }
-            }
-        }
-
-        String[] sortedMonths = highestPerMonth.keySet().toArray(new String[0]);
-        for (int i = 0; i < sortedMonths.length - 1; i++) {
-            for (int j = i + 1; j < sortedMonths.length; j++) {
-                if (sortedMonths[i].compareTo(sortedMonths[j]) > 0) {
-                    String temp = sortedMonths[i];
-                    sortedMonths[i] = sortedMonths[j];
-                    sortedMonths[j] = temp;
-                }
-            }
-        }
-
-        for (String month : sortedMonths) {
-            System.out.print("Month: " + month + " -> ");
-            System.out.println(highestPerMonth.get(month));
-        }
-    }
 }

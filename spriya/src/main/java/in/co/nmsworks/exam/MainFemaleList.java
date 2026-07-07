@@ -12,6 +12,7 @@ public class MainFemaleList {
 
         for (String s : nameList) {
             System.out.println(s);
+
         }
     }
 }

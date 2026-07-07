@@ -11,6 +11,7 @@ public class ArmstrongNumber {
             if (count != 7) {
 
 
+
                 boolean ans = armstrongNumber.isArmstrongNumber(i);
 
                 if (ans) {

@@ -15,6 +15,7 @@ public class SalesInfo {
             String line="";
             reader.readLine();
 
+
            while((line= reader.readLine())!=null){
                String[] res=line.split(",");
 

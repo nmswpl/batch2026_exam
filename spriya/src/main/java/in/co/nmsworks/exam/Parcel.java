@@ -6,3 +6,4 @@ public class Parcel {
         AirShipping airShipping=new AirShipping(50,);
     }
 }
+

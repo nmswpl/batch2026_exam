@@ -21,6 +21,7 @@ public class CompressString {
             char ch1 = input.charAt(j);
 
 
+
             int k = 1;
             char ch2 = input.charAt(k);
             while (k != input.length() && ch1 == ch2) {

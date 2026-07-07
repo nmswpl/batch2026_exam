@@ -9,5 +9,8 @@ public interface ShippingMethod {
 
     public double additionalWeightCost(double weight);
 
+
     public double additionalDistanceCost(double distance);
 }
+
+

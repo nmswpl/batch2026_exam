@@ -14,6 +14,7 @@ public class ActiveFemaleName {
         this.gender = gender;
         this.username = username;
         this.password = password;
+
         this.account_status = account_status;
     }
 

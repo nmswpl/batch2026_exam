@@ -11,13 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length >= 2) {
-            String inputUser = args[0];
-            String inputPass = args[1];
-            validateUser(inputUser, inputPass);
-        } else {
-            validateUser("tantyukhinrr", "dC1?BvIZz<&#Lh");
-        }
+        validateUser("tantyukhinrr", "dC1?BvIZz<&#Lh");
+        List<UserDetails> list = new ArrayList<>();
+        Set<String> activeFemaleName = getActiveFemaleName();
+        System.out.println(activeFemaleName);
     }
 
     private static void validateUser(String username, String password) {
@@ -52,17 +49,29 @@ public class Main {
         }
     }
 
-    private static Set<String> getActiveFemaleName(List<UserDetails> users) {
+    private static Set<String> getActiveFemaleName() {
+
         Set<String> activeFemaleNames = new HashSet<>();
-        if (users == null) {
-            return activeFemaleNames;
+
+        String query = "SELECT username FROM user_details WHERE gender = ? AND account_status = ?";
+
+        try (Connection conn = DriverManager.getConnection(Url, User, Password);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, "Female");
+            stmt.setString(2, "Active");
+
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+                    activeFemaleNames.add(rs.getString("username"));
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Database error: " + e.getMessage());
         }
 
-        for (UserDetails user : users) {
-            if ("Female".equalsIgnoreCase(user.getGender()) && user.isActive()) {
-                activeFemaleNames.add(user.getUsername());
-            }
-        }
         return activeFemaleNames;
     }
 }

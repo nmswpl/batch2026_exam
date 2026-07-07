@@ -2,6 +2,16 @@ package in.co.nmsworks.Exam;
 
 public class StringCompressor {
 
+
+    public static void main(String[] args) {
+
+        String input = "aaabbca";
+        String output = compressString(input);
+
+        System.out.println("Input:  " + input + " ");
+        System.out.println("Output: " + output + " ");
+    }
+
     private static String compressString(String input) {
 
         if (input == null || input.isEmpty()) {
@@ -26,13 +36,4 @@ public class StringCompressor {
         return compressed.toString();
     }
 
-    public static void main(String[] args) {
-
-        String input = "aaabbca";
-        String output = compressString(input);
-
-        System.out.println("Input:  \"" + input + "\"");
-        System.out.println("Output: \"" + output + "\"");
-    }
 }
-

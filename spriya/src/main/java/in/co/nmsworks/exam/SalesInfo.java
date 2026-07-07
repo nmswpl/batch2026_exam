@@ -3,6 +3,7 @@ package in.co.nmsworks.exam;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+
 public class SalesInfo {
     public int cnt=0;
     public double sum=0;

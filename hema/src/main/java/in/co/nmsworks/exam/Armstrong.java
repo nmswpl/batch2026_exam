@@ -40,6 +40,12 @@ public class Armstrong {
     {
         String[] array = input.split("");
 
+        for (String s : array) {
+
+
+
+        }
+
 
         return null;
     }

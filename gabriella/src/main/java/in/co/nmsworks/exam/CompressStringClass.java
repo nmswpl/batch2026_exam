@@ -1,12 +1,37 @@
 package in.co.nmsworks.exam;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CompressStringClass {
     public static void main(String[] args) {
         CompressStringClass compressStringClass = new CompressStringClass();
-        String str = "aaabbca";
+        String str = "aabbc";
         String compressedString = compressStringClass.compressString(str);
         System.out.println(compressedString);
     }
+
+//    private String compressString(String str) {
+//        Map<Character, Integer> frequency = new HashMap<>();
+//        for (int i = 0; i < str.length(); i++){
+//            char ch = str.charAt(i);
+//            Integer count = frequency.get(ch);
+//            if (frequency.get(ch) == null){
+//                frequency.put(ch, 1);
+//            } else {
+//                frequency.put(ch, count+1);
+//
+//            }
+//        }
+//        String compressedString = "";
+//        for (Map.Entry<Character, Integer> characterIntegerEntry : frequency.entrySet()) {
+//            for (int i = 0; i < characterIntegerEntry.getKey(); i++){
+//                compressedString += characterIntegerEntry.getValue();
+//            }
+//        }
+//        return compressedString;
+//    }
+
 
     private String compressString(String str) {
         String compressedString = "";
@@ -22,4 +47,6 @@ public class CompressStringClass {
         }
         return compressedString;
     }
+
+
 }
